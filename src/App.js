@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-            Hello ReactJS start APP mobx
+            Hello ReactJS start APP mobx as state holder
         </p>
       </div>
     );
