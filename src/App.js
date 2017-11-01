@@ -1,23 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
-import Grid from './Grid.js';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Sidebar from "./Sidebar";
+import MainContent from "./MainContent";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-            Hello ReactJS start APP mobx as state holder
-        </p>
-          <Grid/>
-      </div>
-    );
-  }
+
+    constructor(p) {
+        super(p);
+        this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggled = "";
+    }
+
+    toggleMenu() {
+        return {toggled: "toggled"};
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div id="wrapper">
+                    <Sidebar/>
+                    <MainContent/>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
