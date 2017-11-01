@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 class Grid extends Component {
     getInitialState(){
         return [];
-    },
+    }
+
     render() {
         return (
             <table class="table">
