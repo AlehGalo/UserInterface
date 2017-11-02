@@ -4,7 +4,6 @@ class GridBody extends Component {
 
     constructor(props){
         super(props);
-        this.rows = [['1', 'Mark', 'Otto', '@mdo']];
         this.renderRow = this.renderRow.bind(this);
     }
 
@@ -20,7 +19,7 @@ class GridBody extends Component {
     render() {
         return (
                 <tbody>
-                {this.rows.map((r, i)=>this.renderRow(i, r))}
+                {this.props.rows.map((r, i)=>this.renderRow(i, r))}
                 </tbody>
         );
     }

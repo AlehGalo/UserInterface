@@ -9,20 +9,20 @@ class App extends Component {
     constructor(p) {
         super(p);
         this.toggleMenu = this.toggleMenu.bind(this);
-        this.toggled = "";
+        this.state = {sidebarClassName : "toggled"};
+        this.hide = false;
     }
 
     toggleMenu() {
-        return {toggled: "toggled"};
+        this.setState({sidebarClassName : this.hide ? "toggled" : ""});
+        this.hide = !this.hide;
     }
 
     render() {
         return (
-            <div className="App">
-                <div id="wrapper">
-                    <Sidebar/>
-                    <MainContent/>
-                </div>
+            <div id="wrapper" className={this.state.sidebarClassName}>
+                <Sidebar/>
+                <MainContent onToggleClick={this.toggleMenu}/>
             </div>
         );
     }
