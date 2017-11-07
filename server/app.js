@@ -17,6 +17,11 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
+// Answer API requests.
+app.get('/api', function (req, res) {
+    res.set('Content-Type', 'application/json');
+    res.send('{"message":' + PORT + '}');
+});
 
 app.get('/grid', function(request, response){
     let numberOfItems = 5000;
