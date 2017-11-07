@@ -5,9 +5,12 @@
   "dependencies": {
     "express": "^4.16.2",
     "morgan": "^1.9.0",
-    "path": "^0.12.7",
-    "whatwg-fetch": "^2.0.3"
+    "path": "^0.12.7"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "scripts": {
     "start": "node server",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
