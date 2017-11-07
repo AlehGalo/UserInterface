@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import GridBody from './GridBody';
 import GridHeader from './GridHeader';
 
-class Grid extends Component {
-
+export default class Grid extends Component {
     render() {
         return (
             <table className="table">
@@ -13,5 +12,3 @@ class Grid extends Component {
         );
     }
 }
-
-export default Grid;

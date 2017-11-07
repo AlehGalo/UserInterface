@@ -1,22 +1,20 @@
-import React, {Component} from 'react';
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import React from 'react';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Sidebar from "./Sidebar";
 import MainContent from "./MainContent";
 
-class App extends Component {
+export default class App extends React.Component {
 
     constructor(p) {
         super(p);
-        this.toggleMenu = this.toggleMenu.bind(this);
         this.state = {sidebarClassName : "toggled"};
         this.hide = false;
     }
 
-    toggleMenu() {
+    toggleMenu = () => {
         this.setState({sidebarClassName : this.hide ? "toggled" : ""});
         this.hide = !this.hide;
-    }
+    };
 
     render() {
         return (
@@ -27,5 +25,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;

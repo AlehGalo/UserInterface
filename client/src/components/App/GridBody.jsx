@@ -1,20 +1,15 @@
 import React, {Component} from 'react';
 
-class GridBody extends Component {
+export default class GridBody extends Component {
 
-    constructor(props){
-        super(props);
-        this.renderRow = this.renderRow.bind(this);
-    }
-
-    renderRow(i, p){
+    renderRow = (i, p) => {
         return (<tr key={i}>
             <th scope="row">{p[0]}</th>
             <td>{p[1]}</td>
             <td>{p[2]}</td>
             <td>{p[3]}</td>
         </tr>)
-    }
+    };
 
     render() {
         return (
@@ -24,5 +19,3 @@ class GridBody extends Component {
         );
     }
 }
-
-export default GridBody;

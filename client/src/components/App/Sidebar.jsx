@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 
-class Sidebar extends Component {
+export default class Sidebar extends Component {
     render() {
         return (
             <div id="sidebar-wrapper">
@@ -11,30 +11,28 @@ class Sidebar extends Component {
                     </li>
                     <br/>
                     <li>
-                        <a href="../public/index.html">Dashboard</a>
+                        <a href="../../public/index.html">Dashboard</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">Shortcuts</a>
+                        <a href="../../public/index.html">Shortcuts</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">Overview</a>
+                        <a href="../../public/index.html">Overview</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">Events</a>
+                        <a href="../../public/index.html">Events</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">About</a>
+                        <a href="../../public/index.html">About</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">Services</a>
+                        <a href="../../public/index.html">Services</a>
                     </li>
                     <li>
-                        <a href="../public/index.html">Contact</a>
+                        <a href="../../public/index.html">Contact</a>
                     </li>
                 </ul>
             </div>
         );
     }
 }
-
-export default Sidebar;

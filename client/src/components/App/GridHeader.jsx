@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 
-class GridHeader extends Component {
+export default class GridHeader extends Component {
 
     constructor(props) {
         super(props);
         this.header = ['#', 'First Name', 'Last Name', 'Username'];
-        this.renderHeader = this.renderHeader.bind(this);
     }
 
-    renderHeader(val, i) {
+    renderHeader = (val, i) => {
         return (
             <th key={i}>{val}</th>
         );
-    }
+    };
 
     render() {
         return (
@@ -26,5 +25,3 @@ class GridHeader extends Component {
         )
     }
 }
-
-export default GridHeader;

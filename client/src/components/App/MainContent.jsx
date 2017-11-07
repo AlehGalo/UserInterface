@@ -1,39 +1,22 @@
 import React, {Component} from 'react';
-import Grid from "./Grid";
+import Grid from './Grid';
+import 'whatwg-fetch';
 
-class MainContent extends Component {
+export default class MainContent extends Component {
 
     constructor(props) {
         super(props);
-        this.onDetailsClick = this.onDetailsClick.bind(this);
         this.state = {rows: [[]]};
     }
 
-    onDetailsClick() {
-
-        let numberOfItems = 5000;
-
-        let array = new Array();
-
-        let p = performance.now();
-
-        for (let i = 0; i < numberOfItems; i++) {
-            array[i] = new Array();
-            for (let j = 0; j < 4; j++) {
-                array[i][j] = i + " " + j;
-            }
-        }
-
-        this.setState({rows: array});
-
-        console.log(performance.now() - p + " ms")
-        console.log(new Date());
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log(new Date());
-
-    }
+    onDetailsClick = () => {
+        let scope = this;
+        fetch('/grid').then(function (response) {
+            return response.json();
+        }).then(function(array){
+            scope.setState({rows: array})
+        });
+    };
 
     render() {
         return (
@@ -57,5 +40,3 @@ class MainContent extends Component {
         );
     }
 }
-
-export default MainContent;
