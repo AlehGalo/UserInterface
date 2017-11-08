@@ -4,10 +4,10 @@ export default class GridBody extends Component {
 
     renderRow = (i, p) => {
         return (<tr key={i}>
-            <th scope="row">{p[0]}</th>
-            <td>{p[1]}</td>
-            <td>{p[2]}</td>
-            <td>{p[3]}</td>
+            <th scope="row">{p['_id']}</th>
+            <td>{p['firstName']}</td>
+            <td>{p['lastName']}</td>
+            <td>{p['userName']}</td>
         </tr>)
     };
 

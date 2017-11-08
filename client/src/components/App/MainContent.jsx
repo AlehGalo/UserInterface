@@ -14,6 +14,7 @@ export default class MainContent extends Component {
         fetch('/grid').then(function (response) {
             return response.json();
         }).then(function(array){
+            console.log(array);
             scope.setState({rows: array})
         });
     };
