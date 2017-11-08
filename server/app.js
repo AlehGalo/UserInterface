@@ -15,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 // Answer API requests.
 app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
-    res.send('{"message":' + PORT + '}');
+    res.send('{"message":' + process.env.PORT || 9000 + '}');
 });
 
 app.get('/grid', function(request, response){
