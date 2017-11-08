@@ -49,6 +49,7 @@ app.get('/grid', function (request, response) {
             console.error(err);
             return handleError(err);
         }
+        console.log(users);
         response.send(JSON.stringify(users));
     });
     //
