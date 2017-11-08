@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 
 const mongoose = require("mongoose"); // The reason for this demo.
-const uriString = process.env.MONGODB_URI;
+const uriString = process.env.MONGODB_URI || "mongodb://root:password@ds245715.mlab.com:45715/databank";
 
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
@@ -44,8 +44,11 @@ app.get('/api', function (req, res) {
 app.get('/grid', function (request, response) {
     let userModel = mongoose.model('userModel', userSchema);
 
-    userModel.find().exec(function (err, users) {
-        if (err) return handleError(err);
+    userModel.find({}, function (err, users) {
+        if (err){
+            console.error(err);
+            return handleError(err);
+        }
         response.send(JSON.stringify(users));
     });
     //
