@@ -26,9 +26,9 @@ mongoose.connect(uriString, function (err, res) {
 });
 
 const userSchema = mongoose.Schema({
-    firstName: string,
-    lastName: string,
-    userName: string
+    firstName: String,
+    lastName: String,
+    userName: String
 });
 
 
@@ -41,7 +41,7 @@ app.get('/api', function (req, res) {
 app.get('/grid', function(request, response){
     let userModel = mongoose.model('userModel', userSchema);
 
-    userModel.find(function(err, users){
+    userModel.find().exec(function(err, users){
         if (err) return handleError(err);
         response.send(JSON.stringify(users));
     });
