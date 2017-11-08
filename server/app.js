@@ -12,11 +12,6 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// Always return the main index.html, so react-router render the route in the client
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
-
 // Answer API requests.
 app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
@@ -34,6 +29,12 @@ app.get('/grid', function(request, response){
         }
     }
     response.send(JSON.stringify(array));
+});
+
+
+// Always return the main index.html, so react-router render the route in the client
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 module.exports = app;
