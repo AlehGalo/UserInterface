@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-const mongoose = require ("mongoose"); // The reason for this demo.
+const mongoose = require("mongoose"); // The reason for this demo.
 const uriString = process.env.MONGODB_URI;
 
 // Setup logger
@@ -17,11 +17,14 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
-mongoose.connect(uriString, function (err, res) {
+mongoose.connect(uriString, {
+    useMongoClient: true,
+    /* other options */
+}, function (err, res) {
     if (err) {
-        console.log ('ERROR connecting to: ' + uriString + '. ' + err);
+        console.log('ERROR connecting to: ' + uriString + '. ' + err);
     } else {
-        console.log ('Succeeded connected to: ' + uriString);
+        console.log('Succeeded connected to: ' + uriString);
     }
 });
 
@@ -38,10 +41,10 @@ app.get('/api', function (req, res) {
     res.send('{"message":"' + (process.env.PORT || 9000) + '"}');
 });
 
-app.get('/grid', function(request, response){
+app.get('/grid', function (request, response) {
     let userModel = mongoose.model('userModel', userSchema);
 
-    userModel.find().exec(function(err, users){
+    userModel.find().exec(function (err, users) {
         if (err) return handleError(err);
         response.send(JSON.stringify(users));
     });
